@@ -14,7 +14,7 @@
             <a href="#">Contact</a>
           </li>
           <li>
-            <a data-target="slide-out" class="button-menu" href="#">
+            <a data-activates="slide-out" class="button-menu" href="#">
               <i class="material-icons">menu</i>
             </a>
           </li>
@@ -29,7 +29,7 @@ export default {
   name: 'NavbarComponent',
   mounted() {
     $(document).ready(function() {
-      $('.button-menu').sidenav({
+      $('.button-menu').sideNav({
         menuWidth: 300,
         edge: 'left',
         closeOnClick: false,
