@@ -1,310 +1,24 @@
 <template>
   <div class="container">
     <!-- START HERE -->
-    <div class="row">
-      <div class="col s12 m6">
-        <!-- SIMPLE CARD WITHOUT TITLE -->
-        <div class="card">
-          <div class="card-content">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              harum enim inventore ullam expedita nesciunt ea voluptatem
-              corporis iusto sint?
-            </p>
-          </div>
-        </div>
-
-        <!-- ADD COLOR -->
-        <div class="card red darken-2">
-          <div class="card-content white-text">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              harum enim inventore ullam expedita nesciunt ea voluptatem
-              corporis iusto sint?
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m6">
-        <!-- CARD WITH TITLE -->
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">Card With Title</span>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              harum enim inventore ullam expedita nesciunt ea voluptatem
-              corporis iusto sint?
-            </p>
-          </div>
-          <!-- ADD LINKS -->
-          <div class="card-action">
-            <a href="#">Read More</a>
-            <a href="#">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 m6">
+    <div
+      class="row"
+      v-for="(multiplierPart, index) in filteredPosts"
+      :key="index"
+    >
+      <div class="col s12 m6" v-for="post in multiplierPart" :key="post.id">
         <!-- CARD WITH IMAGE -->
         <div class="card">
           <div class="card-image">
-            <img src="img/img1.jpg" />
-            <span class="card-title">Card Image</span>
+            <img :src="post.cardImage" />
+            <span class="card-title" v-text="post.cardTitle"></span>
           </div>
           <div class="card-content">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              harum enim inventore ullam expedita nesciunt ea voluptatem
-              corporis iusto sint?
-            </p>
+            <p v-text="post.cardContent"></p>
           </div>
           <div class="card-action">
             <a href="#">Read More</a>
           </div>
-        </div>
-      </div>
-      <div class="col s12 m6">
-        <!-- CARD WITH IMAGE & FLOATING BUTTON -->
-        <div class="card blue-grey lighten-4">
-          <div class="card-image">
-            <img src="img/img2.jpg" />
-            <span class="card-title">Image & Button</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light blue">
-              <i class="material-icons">add</i>
-            </a>
-          </div>
-          <div class="card-content">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              harum enim inventore ullam expedita nesciunt ea voluptatem
-              corporis iusto sint?
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 m6">
-        <!-- HORIZONTAL CARD -->
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="img/img3.jpg" />
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <span class="card-title">Horizontal</span>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m6">
-        <!-- CARD REVEAL -->
-        <div class="card">
-          <div class="card-image waves-effect waves-light waves-block">
-            <img class="activator" src="img/img4.jpg" />
-          </div>
-          <div class="card-content">
-            <span class="card-title activator"
-              >Card Reveal
-              <i class="material-icons">more_vert</i>
-            </span>
-            <p>
-              <!-- add activator to anything -->
-              <a href="#!" class="activator">Read More</a>
-            </p>
-          </div>
-          <!-- inside of reveal -->
-          <div class="card-reveal">
-            <span class="card-title"
-              >Card Title
-              <i class="material-icons">close</i>
-            </span>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ad
-              repudiandae sequi at quis assumenda iusto dolor in, maxime earum
-              debitis ea vero aspernatur ipsum, totam iste molestias natus!
-              Ullam?
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 m6">
-        <!-- TABBED CARD -->
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">Tabbed Card</span>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, rem
-              obcaecati. Recusandae laborum, odit commodi fuga dolores dolorem,
-              minima hic similique illo, ipsam eos. Perspiciatis omnis voluptas
-              sunt delectus ab?
-            </p>
-          </div>
-          <div class="card-tabs">
-            <ul class="tabs tabs-width-fixed">
-              <li class="tab">
-                <a href="#tab1">Tab 1</a>
-              </li>
-              <li class="tab">
-                <a href="#tab2">Tab 2</a>
-              </li>
-              <li class="tab">
-                <a href="#tab3">Tab 3</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-content">
-            <div id="tab1">This is the content for tab 1</div>
-            <div id="tab2">This is the content for tab 2</div>
-            <div id="tab3">This is the content for tab 3</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m6">
-        <!-- TABBED CARD COLORED -->
-        <div class="card orange darken white-text">
-          <div class="card-content">
-            <span class="card-title">Tabbed Card</span>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, rem
-              obcaecati. Recusandae laborum, odit commodi fuga dolores dolorem,
-              minima hic similique illo, ipsam eos. Perspiciatis omnis voluptas
-              sunt delectus ab?
-            </p>
-          </div>
-          <div class="card-tabs">
-            <ul class="tabs tabs-width-fixed tabs-transparent">
-              <li class="tab">
-                <a href="#tab1">Tab 1</a>
-              </li>
-              <li class="tab">
-                <a href="#tab2">Tab 2</a>
-              </li>
-              <li class="tab">
-                <a href="#tab3">Tab 3</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-content black lighten-4">
-            <div id="tab1">This is the content for tab 1</div>
-            <div id="tab2">This is the content for tab 2</div>
-            <div id="tab3">This is the content for tab 3</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD SIZES -->
-    <div class="row">
-      <div class="col s12 m4">
-        <!-- SMALL -->
-        <div class="card small">
-          <div class="card-image">
-            <img src="img/img5.jpg" />
-            <span class="card-title">Card Image</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              harum enim inventore ullam expedita nesciunt ea voluptatem
-              corporis iusto sint?
-            </p>
-          </div>
-          <div class="card-action">
-            <a href="#">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m4">
-        <!-- MEDIUM -->
-        <div class="card medium">
-          <div class="card-image">
-            <img src="img/img6.jpg" />
-            <span class="card-title">Card Image</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              harum enim inventore ullam expedita nesciunt ea voluptatem
-              corporis iusto sint?
-            </p>
-          </div>
-          <div class="card-action">
-            <a href="#">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m4">
-        <!-- LARGE -->
-        <div class="card large">
-          <div class="card-image">
-            <img src="img/img7.jpg" />
-            <span class="card-title">Card Image</span>
-          </div>
-          <div class="card-content">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              harum enim inventore ullam expedita nesciunt ea voluptatem
-              corporis iusto sint?
-            </p>
-          </div>
-          <div class="card-action">
-            <a href="#">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD PANELS & SHADOW -->
-    <div class="row">
-      <div class="col s12 m3">
-        <div class="card-panel blue z-depth-2">
-          <span
-            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
-            magni aut mollitia quis? Ab voluptate quaerat libero voluptatibus
-            quisquam in dolorum nobis hic. Suscipit dignissimos laboriosam id
-            nesciunt debitis exercitationem.
-          </span>
-        </div>
-      </div>
-      <div class="col s12 m3">
-        <div class="card-panel indigo z-depth-3">
-          <span class="white-text"
-            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
-            magni aut mollitia quis? Ab voluptate quaerat libero voluptatibus
-            quisquam in dolorum nobis hic. Suscipit dignissimos laboriosam id
-            nesciunt debitis exercitationem.
-          </span>
-        </div>
-      </div>
-      <div class="col s12 m3">
-        <div class="card-panel cyan z-depth-4">
-          <span
-            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
-            magni aut mollitia quis? Ab voluptate quaerat libero voluptatibus
-            quisquam in dolorum nobis hic. Suscipit dignissimos laboriosam id
-            nesciunt debitis exercitationem.
-          </span>
-        </div>
-      </div>
-      <div class="col s12 m3">
-        <div class="card-panel amber">
-          <span
-            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
-            magni aut mollitia quis? Ab voluptate quaerat libero voluptatibus
-            quisquam in dolorum nobis hic. Suscipit dignissimos laboriosam id
-            nesciunt debitis exercitationem.
-          </span>
         </div>
       </div>
     </div>
@@ -314,10 +28,101 @@
 </template>
 
 <script>
+import img1 from '@/assets/img/img1.jpg';
+import img2 from '@/assets/img/img2.jpg';
+import img3 from '@/assets/img/img3.jpg';
+import img4 from '@/assets/img/img4.jpg';
+import img5 from '@/assets/img/img5.jpg';
+import img6 from '@/assets/img/img6.jpg';
+import img7 from '@/assets/img/img7.jpg';
+import img8 from '@/assets/img/img8.jpg';
+
 export default {
-  name: 'ContentComponent'
+  name: 'ContentComponent',
+  data: function() {
+    return {
+      posts,
+      multiplier: 2
+    };
+  },
+  computed: {
+    filteredPosts() {
+      const filteredPosts = [];
+      let multiplierPart = [];
+      posts.forEach((post, index) => {
+        if (index % this.multiplier === 0 && multiplierPart.length !== 0) {
+          filteredPosts.push(multiplierPart);
+          multiplierPart = [];
+        }
+        multiplierPart.push(post);
+      });
+      return filteredPosts;
+    }
+  }
 };
+
+const posts = [
+  {
+    id: 1,
+    cardImage: img1,
+    cardTitle: 'Card Image',
+    cardContent:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi harum enim inventore ullam expedita nesciunt ea voluptatem corporis iusto sint?'
+  },
+  {
+    id: 2,
+    cardImage: img2,
+    cardTitle: 'Card Image',
+    cardContent:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi harum enim inventore ullam expedita nesciunt ea voluptatem corporis iusto sint?'
+  },
+  {
+    id: 3,
+    cardImage: img3,
+    cardTitle: 'Card Image',
+    cardContent:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi harum enim inventore ullam expedita nesciunt ea voluptatem corporis iusto sint?'
+  },
+  {
+    id: 4,
+    cardImage: img4,
+    cardTitle: 'Card Image',
+    cardContent:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi harum enim inventore ullam expedita nesciunt ea voluptatem corporis iusto sint?'
+  },
+  {
+    id: 5,
+    cardImage: img5,
+    cardTitle: 'Card Image',
+    cardContent:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi harum enim inventore ullam expedita nesciunt ea voluptatem corporis iusto sint?'
+  },
+  {
+    id: 6,
+    cardImage: img6,
+    cardTitle: 'Card Image',
+    cardContent:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi harum enim inventore ullam expedita nesciunt ea voluptatem corporis iusto sint?'
+  },
+  {
+    id: 7,
+    cardImage: img7,
+    cardTitle: 'Card Image',
+    cardContent:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi harum enim inventore ullam expedita nesciunt ea voluptatem corporis iusto sint?'
+  },
+  {
+    id: 8,
+    cardImage: img8,
+    cardTitle: 'Card Image',
+    cardContent:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi harum enim inventore ullam expedita nesciunt ea voluptatem corporis iusto sint?'
+  }
+];
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped lang="less">
+@import 'Content.less';
+
+</style>

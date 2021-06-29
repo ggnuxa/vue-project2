@@ -3,10 +3,10 @@
     <li>
       <div class="user-view">
         <div class="background">
-          <img src="img/img4.jpg" />
+          <img src="@/assets/img/img4.jpg" />
         </div>
         <a href="#!">
-          <img class="circle" src="img/img5.jpg" />
+          <img class="circle" src="@/assets/img/img5.jpg" />
         </a>
         <a href="#!">
           <span class="white-text name">John Doe</span>
@@ -39,9 +39,14 @@
 
 <script>
 export default {
-  name: 'SidebarComponent'
+  name: "SidebarComponent"
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.side-nav .input-field {
+  margin: 0 30px;
+}
+
+</style>

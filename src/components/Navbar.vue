@@ -4,18 +4,16 @@
       <div class="nav-wrapper">
         <a href="#" class="-logo">Logo</a>
         <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-          <li>
-            <a data-activates="slide-out" class="button-menu" href="#">
-              <i class="material-icons">menu</i>
+          <li v-for="(item, key) in items" :key="key">
+            <a
+              href="#"
+              :class="item.customClass"
+              :data-activates="item.dataActivates"
+            >
+              {{ item.label }}
+              <i v-if="item.iconName" class="material-icons">{{
+                item.iconName
+              }}</i>
             </a>
           </li>
         </ul>
@@ -45,6 +43,11 @@ export default {
     //     draggable: true
     //   });
     // });
+  },
+  computed: {
+    items() {
+      return this.$store.state.navMenu;
+    }
   }
 };
 </script>
@@ -60,10 +63,6 @@ export default {
   color: #fff;
   font-size: 2.1rem;
   padding: 0;
-}
-
-.side-nav .input-field {
-  margin: 0 30px;
 }
 
 </style>
